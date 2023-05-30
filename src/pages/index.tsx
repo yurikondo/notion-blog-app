@@ -1,11 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import { getAllPosts } from "../../lib/notionApi";
-import SinglePost from "../../components /Post/SinglePost";
-
-const inter = Inter({ subsets: ["latin"] });
+import SinglePost from "../../components/Post/SinglePost";
 
 export const getStaticProps = async () => {
   const allPosts = await getAllPosts();
@@ -40,7 +35,7 @@ export default function Home({ allPosts }) {
               title={post.title}
               description={post.description}
               date={post.date}
-              tag={post.tags}
+              tags={post.tags}
             />
           </div>
         ))}
